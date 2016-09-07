@@ -6,6 +6,8 @@ CloudFormation do
   IoT_TopicRule(:MyTopicRule) {
     RuleName "MyTestRule"
     TopicRulePayload {
+      Actions [
+              ]
       Description "my description"
       RuleDisabled false
       Sql "SELECT * FROM 'thingtopic'"
