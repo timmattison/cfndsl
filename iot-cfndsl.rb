@@ -7,6 +7,7 @@ CloudFormation do
     RuleName "MyTestRule"
     TopicRulePayload {
       Actions [
+                  Republish {}
               ]
       Description "my description"
       RuleDisabled false
