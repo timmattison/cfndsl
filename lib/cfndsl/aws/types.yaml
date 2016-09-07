@@ -679,6 +679,10 @@ Resources:
     Policies: [ IAMEmbeddedPolicy ]
    Attributes:
     Arn: String
+  "AWS::IoT::TopicRule" :
+    Properties:
+      RuleName: String
+      TopicRulePayload: IoTTopicRulePayload
   "AWS::Kinesis::Stream" :
     Properties:
       Name: String
@@ -1216,6 +1220,73 @@ Types:
  IAMEmbeddedPolicy:
   PolicyDocument: JSON
   PolicyName: String
+ IoTTopicRulePayload:
+  Actions: [ IoTActions ]
+  AwsIotSqlVersion: String
+  Description: String
+  RuleDisabled: Boolean
+  Sql: String
+ IoTActions:
+  CloudwatchAlarm: [ IoTCloudwatchAlarmAction ]
+  CloudwatchMetric: [ IoTCloudwatchMetricAction ]
+  DynamoDB: [ IoTDynamoDBAction ]
+  Elasticsearch: [ IoTElasticsearchAction ]
+  Firehose: [ IoTFirehoseAction ]
+  Kinesis: [ IoTKinesisAction ]
+  Lambda: [ IoTLambdaAction ]
+  Republish: [ IoTRepublishAction ]
+  S3: [ IoTS3Action ]
+  Sns: [ IoTSnsAction ]
+  Sqs: [ IoTSqsAction ]
+ IoTCloudwatchAlarmAction:
+  AlarmName: String
+  RoleArn: String
+  StateReason: String
+  StateValue: String
+ IoTCloudwatchMetricAction:
+  MetricName: String
+  MetricNamespace: String
+  MetricTimestamp: String
+  MetricUnit: String
+  MetricValue: String
+  RoleArn: String
+ IoTDynamoDBAction:
+  HashKeyField: String
+  HashKeyValue: String
+  PayloadField: String
+  RangeKeyField: String
+  RangeKeyValue: String
+  RoleArn: String
+  TableName: String
+ IoTElasticsearchAction:
+  Endpoint: String
+  Id: String
+  Index: String
+  RoleArn: String
+  Type: String
+ IoTFirehoseAction:
+  DeliveryStreamName: String
+  RoleArn: String
+ IoTKinesisAction:
+  DeliveryStreamName: String
+  RoleArn: String
+ IoTLambdaAction:
+  FunctionArn: String
+ IoTRepublishAction:
+  RoleArn: String
+  Topic: String
+ IoTS3Action:
+  BucketName: String
+  Key: String
+  RoleArn: String
+ IoTSnsAction:
+  MessageFormat: String
+  RoleArn: String
+  TargetArn: String
+ IoTSqsAction:
+  QueueUrl: String
+  RoleArn: String
+  UseBase64: String
  EC2PortRange:
   From: Integer
   To: Integer
